@@ -97,8 +97,8 @@ border-background shadow-lg z-10 hidden md:block" />
 
                     <CardContent className="p-6 relative">
                         {/* Company Photo - positioned in corners */}
-                        <div className={`absolute -top-2 w-20 h-20 rounded-full overflow-hidden border-2 border-primary/30 shadow-sm bg-muted/20 hover:border-primary/60 transition-all duration-300 hover:scale-110 ${
-                          index % 2 === 0 ? "right-2" : "left-2"
+                        <div className={`absolute -top-2 w-20 h-20 rounded-full overflow-hidden border-2 border-primary/30 shadow-sm bg-muted/20 hover:border-primary/60 transition-all duration-300 hover:scale-110 right-2 ${
+                          index % 2 === 0 ? "md:right-2" : "md:left-2"
                         }`}>
                           <Image
                             src={experience.image}

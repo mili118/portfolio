@@ -1,5 +1,6 @@
 "use client"
 
+import { useState } from "react"
 import Image from "next/image"
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
@@ -50,6 +51,18 @@ const projects = [
 ]
 
 export function Projects() {
+  const [expandedProjects, setExpandedProjects] = useState<Set<number>>(new Set())
+  
+  const toggleProject = (index: number) => {
+    const newExpanded = new Set(expandedProjects)
+    if (newExpanded.has(index)) {
+      newExpanded.delete(index)
+    } else {
+      newExpanded.add(index)
+    }
+    setExpandedProjects(newExpanded)
+  }
+
   return (
     <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30 relative overflow-hidden">
       {/* Projects page floating blobs - similar to hero page movement */}
@@ -72,11 +85,12 @@ export function Projects() {
           {projects.map((project, index) => (
             <Card
               key={index}
-              className={`group overflow-hidden hover:shadow-xl transition-all duration-500 hover:-translate-y-2 scroll-animate ${
+              className={`group overflow-hidden hover:shadow-xl transition-all duration-500 hover:-translate-y-2 scroll-animate cursor-pointer md:cursor-default ${
                 index % 2 === 0
                   ? "scroll-animate-left"
                   : "scroll-animate-right"
               }`}
+              onClick={() => toggleProject(index)}
             >
 
               <CardContent className="p-6 space-y-4">
@@ -89,8 +103,12 @@ export function Projects() {
                   {project.brief}
                 </p>
 
-                {/* Expanded content (only visible on hover) */}
-                <div className="opacity-0 max-h-0 overflow-hidden group-hover:opacity-100 group-hover:max-h-96 transition-all duration-500 group-hover:pt-4">
+                {/* Expanded content - mobile: click to toggle, desktop: hover */}
+                <div className={`overflow-hidden transition-all duration-500 ${
+                  expandedProjects.has(index) 
+                    ? "opacity-100 max-h-96 pt-4 md:opacity-0 md:max-h-0 md:pt-0" 
+                    : "opacity-0 max-h-0"
+                } md:group-hover:opacity-100 md:group-hover:max-h-96 md:group-hover:pt-4`}>
                   <div className="border-t pt-4 space-y-4">
                     <p className="text-muted-foreground font-[family-name:var(--font-dm-sans)] leading-relaxed">
                       {project.description}
