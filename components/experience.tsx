@@ -19,23 +19,23 @@ const experiences = [
   {
     title: "Blockchain Developer",
     company: "PlutoFi",
-    location: "Remote",
+    location: "San Diego, CA",
     period: "Dec 2024 - Present",
     description:
       "Built high-performance Rust systems to stream and decode real-time Solana blockchain data, enabling sub-second trading insights for DeFi protocols like Pump.fun and Raydium.",
     technologies: ["Rust", "Solana", "gRPC", "Real-time Data"],
     image: "/plutofi.jpg",
   },
-  {
-    title: "Software Engineering Intern",
-    company: "Skyworth Group Co.",
-    location: "Vancouver, BC",
-    period: "Jul 2024 - Aug 2024",
-    description:
-      "Developed an AI-powered voice assistant for smart TVs using RAG architecture and GPT-4, enabling natural language content discovery across multiple streaming platforms.",
-    technologies: ["Python", "RAG", "LangChain", "OpenAI GPT-4"],
-    image: "/skyworth.jpg",
-  },
+  // {
+  //   title: "Software Engineering Intern",
+  //   company: "Skyworth Group Co.",
+  //   location: "Vancouver, BC",
+  //   period: "Jul 2024 - Aug 2024",
+  //   description:
+  //     "Developed an AI-powered voice assistant for smart TVs using RAG architecture and GPT-4, enabling natural language content discovery across multiple streaming platforms.",
+  //   technologies: ["Python", "RAG", "LangChain", "OpenAI GPT-4"],
+  //   image: "/skyworth.jpg",
+  // },
   {
     title: "Instructor",
     company: "University of British Columbia Engineering Outreach",

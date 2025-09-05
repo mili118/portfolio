@@ -48,10 +48,21 @@ const projects = [
     demo: null,
     image: "/images/projects/eco-friendly.jpg",
   },
+  {
+    title: "Smart TV Voice Assistant",
+    brief: "AI-powered voice assistant for natural language content discovery across streaming services",
+    description:
+      "Built an intelligent voice assistant platform that enables users to find content across multiple streaming platforms using natural language queries. Implemented RAG (Retrieval-Augmented Generation) architecture with vector embeddings to understand user intent and retrieve relevant content recommendations.",
+    technologies: ["Python", "LangChain", "OpenAI Vector Embeddings"],
+    github: undefined,
+    demo: null,
+    image: "/images/projects/voice-assistant.jpg",
+  },
 ]
 
 export function Projects() {
   const [expandedProjects, setExpandedProjects] = useState<Set<number>>(new Set())
+  const [showAllProjects, setShowAllProjects] = useState(false)
   
   const toggleProject = (index: number) => {
     const newExpanded = new Set(expandedProjects)
@@ -62,6 +73,8 @@ export function Projects() {
     }
     setExpandedProjects(newExpanded)
   }
+
+  const visibleProjects = showAllProjects ? projects : projects.slice(0, 4)
 
   return (
     <section id="projects" className="py-20 px-4 sm:px-6 lg:px-8 bg-muted/30 relative overflow-hidden">
@@ -82,7 +95,7 @@ export function Projects() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-          {projects.map((project, index) => (
+          {visibleProjects.map((project, index) => (
             <Card
               key={index}
               className={`group overflow-hidden hover:shadow-xl transition-all duration-500 hover:-translate-y-2 scroll-animate cursor-pointer md:cursor-default ${
@@ -154,6 +167,19 @@ export function Projects() {
             </Card>
           ))}
         </div>
+
+        {/* View More/Less Button */}
+        {projects.length > 4 && (
+          <div className="flex justify-center mt-12">
+            <Button 
+              variant="outline" 
+              onClick={() => setShowAllProjects(!showAllProjects)}
+              className="px-8 py-2 text-lg font-medium hover:scale-105 transition-transform font-[family-name:var(--font-dm-sans)]"
+            >
+              {showAllProjects ? 'View Less' : `View More (${projects.length - 4} more)`}
+            </Button>
+          </div>
+        )}
       </div>
     </section>
   )
