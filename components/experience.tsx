@@ -13,7 +13,7 @@ const experiences = [
     period: "Jan 2025 - Present",
     description:
       "Researching blockchain privacy vulnerabilities by developing statistical models to analyze transaction patterns and identify weaknesses in DeFi protocols like Houdini, Railgun, and Secret Swap.",
-    technologies: ["Python", "Blockchain Analysis", "Statistical Models", "DeFi"],
+    technologies: ["Blockchain Analysis", "DeFi"],
     image: "/ucsd-research.png",
   },
   {
@@ -23,19 +23,9 @@ const experiences = [
     period: "Dec 2024 - Present",
     description:
       "Built high-performance Rust systems to stream and decode real-time Solana blockchain data, enabling sub-second trading insights for DeFi protocols like Pump.fun and Raydium.",
-    technologies: ["Rust", "Solana", "gRPC", "Real-time Data"],
+    technologies: ["Rust"],
     image: "/plutofi.jpg",
   },
-  // {
-  //   title: "Software Engineering Intern",
-  //   company: "Skyworth Group Co.",
-  //   location: "Vancouver, BC",
-  //   period: "Jul 2024 - Aug 2024",
-  //   description:
-  //     "Developed an AI-powered voice assistant for smart TVs using RAG architecture and GPT-4, enabling natural language content discovery across multiple streaming platforms.",
-  //   technologies: ["Python", "RAG", "LangChain", "OpenAI GPT-4"],
-  //   image: "/skyworth.jpg",
-  // },
   {
     title: "Instructor",
     company: "University of British Columbia Engineering Outreach",
@@ -43,7 +33,7 @@ const experiences = [
     period: "May 2022 - Aug 2022",
     description:
       "Led week-long STEM summer camps that helped elementary students develop foundational engineering and technology concepts through interactive learning experiences.",
-    technologies: ["CAD", "3D Modeling", "STEM Education", "Curriculum Design"],
+    technologies: ["CAD", "STEM Education"],
     image: "/ubc-outreach.png",
   },
 ]
