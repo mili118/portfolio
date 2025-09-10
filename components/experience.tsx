@@ -10,7 +10,7 @@ const experiences = [
     title: "Undergraduate Research Assistant",
     company: "UC San Diego CSE, Advised by Prof. Deian Stefan",
     location: "San Diego, CA",
-    period: "Jan 2025 - Present",
+    period: "June 2025 - Present",
     description:
       "Researching blockchain privacy vulnerabilities by developing statistical models to analyze transaction patterns and identify weaknesses in DeFi protocols like Houdini, Railgun, and Secret Swap.",
     technologies: ["Blockchain Analysis", "DeFi"],
