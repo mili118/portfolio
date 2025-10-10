@@ -17,9 +17,9 @@ const experiences = [
     image: "/ucsd-research.png",
   },
   {
-    title: "Blockchain Developer",
+    title: "Founding Engineer",
     company: "PlutoFi",
-    location: "San Diego, CA",
+    location: "Vancouver, BC",
     period: "Dec 2024 - Present",
     description:
       "Built high-performance Rust systems to stream and decode real-time Solana blockchain data, enabling sub-second trading insights for DeFi protocols like Pump.fun and Raydium.",
