@@ -44,7 +44,7 @@ const projects = [
     description:
       "A Flutter-based mobile application designed to help users adopt eco-friendly habits and track their environmental impact through gamification and educational features.",
     technologies: ["Flutter", "HTML"],
-    github: "https://github.com/mili118/eco",
+    github: undefined,
     demo: null,
     image: "/images/projects/eco-friendly.jpg",
   },
