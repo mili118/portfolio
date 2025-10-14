@@ -32,8 +32,8 @@ const experiences = [
     location: "Vancouver, BC",
     period: "May 2022 - Aug 2022",
     description:
-      "Led week-long STEM summer camps that helped elementary students develop foundational engineering and technology concepts through interactive learning experiences.",
-    technologies: ["CAD", "STEM Education"],
+      "Taught object-oriented programming principles including encapsulation, inheritance, polymorphism, and abstraction through Java class implementations and exercises.",
+    technologies: ["Java"],
     image: "/ubc-outreach.png",
   },
 ]
