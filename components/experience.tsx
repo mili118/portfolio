@@ -15,6 +15,7 @@ const experiences = [
       "Researching blockchain privacy vulnerabilities by developing statistical models to analyze transaction patterns and identify weaknesses in DeFi protocols like Houdini, Railgun, and Secret Swap.",
     technologies: ["Blockchain Analysis", "DeFi"],
     image: "/ucsd-research.png",
+    url: "https://cse.ucsd.edu/", 
   },
   {
     title: "Founding Engineer",
@@ -25,6 +26,7 @@ const experiences = [
       "Built high-performance Rust systems to stream and decode real-time Solana blockchain data, enabling sub-second trading insights for DeFi protocols like Meteora and Raydium.",
     technologies: ["Rust", "Golang", "Redis", "Postgresql"],
     image: "/plutofi.jpg",
+    url: "https://www.plutofi.xyz/login", 
   },
   {
     title: "Instructor",
@@ -32,9 +34,10 @@ const experiences = [
     location: "Vancouver, BC",
     period: "May 2022 - Aug 2022",
     description:
-      "Taught object-oriented programming principles including encapsulation, inheritance, polymorphism, and abstraction through Java class implementations and exercises.",
+      "Taught object-oriented programming principles through the robotics summer session course",
     technologies: ["Java"],
     image: "/ubc-outreach.png",
+    url:"https://geeringup.apsc.ubc.ca/", 
   },
 ]
 
@@ -90,15 +93,34 @@ border-background shadow-lg z-10 hidden md:block" />
                         <div className={`absolute -top-2 w-20 h-20 rounded-full overflow-hidden border-2 border-primary/30 shadow-sm bg-muted/20 hover:border-primary/60 transition-all duration-300 hover:scale-110 right-2 ${
                           index % 2 === 0 ? "md:right-2" : "md:left-2"
                         }`}>
-                          <Image
-                            src={experience.image}
-                            alt={`${experience.company} logo`}
-                            fill
-                            className={`object-cover ${experience.image.includes('ucsd-research') ? 'scale-[1.3]' : ''} ${experience.image.includes('plutofi') ? 'scale-[0.8] -translate-x-0.5' : ''}`}
-                            onError={(e) => {
-                              e.currentTarget.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' fill='%23f3f4f6'/%3E%3Ctext x='24' y='24' text-anchor='middle' dy='.3em' fill='%236b7280' font-family='Arial, sans-serif' font-size='8'%3ELogo%3C/text%3E%3C/svg%3E"
-                            }}
-                          />
+                          {experience.url ? (
+                            <a
+                              href={experience.url}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="block w-full h-full cursor-pointer"
+                            >
+                              <Image
+                                src={experience.image}
+                                alt={`${experience.company} logo`}
+                                fill
+                                className={`object-cover ${experience.image.includes('ucsd-research') ? 'scale-[1.3]' : ''} ${experience.image.includes('plutofi') ? 'scale-[0.8] -translate-x-0.5' : ''}`}
+                                onError={(e) => {
+                                  e.currentTarget.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' fill='%23f3f4f6'/%3E%3Ctext x='24' y='24' text-anchor='middle' dy='.3em' fill='%236b7280' font-family='Arial, sans-serif' font-size='8'%3ELogo%3C/text%3E%3C/svg%3E"
+                                }}
+                              />
+                            </a>
+                          ) : (
+                            <Image
+                              src={experience.image}
+                              alt={`${experience.company} logo`}
+                              fill
+                              className={`object-cover ${experience.image.includes('ucsd-research') ? 'scale-[1.3]' : ''} ${experience.image.includes('plutofi') ? 'scale-[0.8] -translate-x-0.5' : ''}`}
+                              onError={(e) => {
+                                e.currentTarget.src = "data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Crect width='48' height='48' fill='%23f3f4f6'/%3E%3Ctext x='24' y='24' text-anchor='middle' dy='.3em' fill='%236b7280' font-family='Arial, sans-serif' font-size='8'%3ELogo%3C/text%3E%3C/svg%3E"
+                              }}
+                            />
+                          )}
                         </div>
 
                         {/* Period Badge */}

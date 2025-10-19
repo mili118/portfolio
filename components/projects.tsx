@@ -19,10 +19,10 @@ const projects = [
     image: "/images/projects/dex-monitoring.jpg",
   },
   {
-    title: "Bonk.capital - Solana Lending Platform",
-    brief: "Decentralized lending protocol with mobile-first experience",
+    title: "Solana Lending Platform",
+    brief: "Decentralized lending protocol on Solana with a mobile experience",
     description:
-      "Designed and deployed a decentralized lending protocol on Solana Devnet, enabling users to supply assets like BONK and SOL and borrow stablecoins. Engineered a mobile-first frontend using React Native, integrating with Phantom wallet for seamless DeFi experience.",
+      "Designed and deployed a decentralized lending protocol on Solana Devnet, enabling users to supply assets like BONK and SOL and borrow stablecoins. Engineered a mobile frontend using React Native, integrated with Phantom wallet.",
     technologies: ["Golang", "Rust", "React Native", "DeFi"],
     github: "https://github.com/mili118/bonkdotcapital",
     demo: null,
