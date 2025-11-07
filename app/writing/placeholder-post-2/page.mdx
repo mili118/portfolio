@@ -1,0 +1,37 @@
+import Link from 'next/link'
+
+export const metadata = {
+  title: 'placeholder post title 2',
+  description: 'this is another placeholder post',
+}
+
+<div className="min-h-screen bg-white dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100 flex items-center justify-center">
+  <div className="max-w-2xl w-full px-8 py-16">
+    <Link href="/" className="text-sm text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100 mb-10 inline-block">
+      ← back
+    </Link>
+
+    <article className="space-y-8 leading-loose">
+      <header className="mb-10">
+        <h1 className="text-3xl font-normal mb-3 tracking-tight">placeholder post title 2</h1>
+        <p className="text-neutral-500 dark:text-neutral-600 text-sm">january 2, 2024</p>
+      </header>
+
+      <p>
+        this is another placeholder post. replace this with your own content.
+      </p>
+
+      <h2 className="text-xl font-medium mt-10 mb-4">introduction</h2>
+
+      <p>write your introduction here.</p>
+
+      <h2 className="text-xl font-medium mt-10 mb-4">main content</h2>
+
+      <p>add your main content here.</p>
+
+      <h2 className="text-xl font-medium mt-10 mb-4">conclusion</h2>
+
+      <p>your conclusion goes here.</p>
+    </article>
+  </div>
+</div>
