@@ -5,58 +5,56 @@ export default function Home() {
     <div className="min-h-screen bg-white dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100 flex items-center justify-center">
       <div className="max-w-2xl w-full px-8 py-16">
         {/* Header */}
-        <header className="mb-16">
-          <h1 className="text-3xl font-normal tracking-tight mb-6">
-            your name
+        <header className="mb-10">
+          <h1 className="text-3xl font-bold tracking-tight mb-3">
+            Michael Liang
           </h1>
           <div className="flex gap-3 text-sm">
-            <Link href="mailto:your@email.com" className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100">
+            <Link href="mailto:michaelliang875@gmail.com" className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100">
               email
             </Link>
             <span className="text-neutral-300 dark:text-neutral-700">/</span>
-            <Link href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer" className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100">
+            <Link href="https://www.linkedin.com/in/michael-liang8/" target="_blank" rel="noopener noreferrer" className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100">
               linkedin
             </Link>
             <span className="text-neutral-300 dark:text-neutral-700">/</span>
-            <Link href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100">
+            <Link href="https://github.com/mili118" target="_blank" rel="noopener noreferrer" className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100">
               github
-            </Link>
-            <span className="text-neutral-300 dark:text-neutral-700">/</span>
-            <Link href="https://twitter.com/yourusername" target="_blank" rel="noopener noreferrer" className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100">
-              twitter
             </Link>
           </div>
         </header>
 
         {/* Main Content */}
-        <article className="space-y-8 leading-loose mb-16">
+        <article className="space-y-4 leading-relaxed mb-16 text-sm">
           <p>
-            Hello! I&apos;m [Your Name]. I study [your field] at [university] and I deeply enjoy building things.
+            Greetings! I&apos;m Michael and I study Computer Engineering at UC San Diego. I'm interested in building smarter decentralized systems.
           </p>
 
           <p>
-            Currently, I&apos;m helping run{" "}
+             I&apos;m currently building{" "}
             <Link href="#" className="underline underline-offset-4 decoration-1">
-              project one
+              PlutoFi
             </Link>
-            , maintaining{" "}
+            . I also do some research regarding{" "}
             <Link href="#" className="underline underline-offset-4 decoration-1">
-              project two
-            </Link>
-            , and{" "}
-            <Link href="#" className="underline underline-offset-4 decoration-1">
-              doing something
+              DEX privacy protocols
             </Link>
             {" "}and{" "}
             <Link href="#" className="underline underline-offset-4 decoration-1">
-              something else
+              semantic data engineering
             </Link>
-            {" "}on the side. I also enjoy [your hobby].
+            . On the side, I help with engineering at{" "}
+            <Link href="#" className="underline underline-offset-4 decoration-1">
+              BaSD
+            </Link>
+            .
           </p>
+
+          <p> </p>
 
           <p className="pt-2 font-medium">Recent work:</p>
 
-          <ul className="space-y-4 ml-1">
+          <ul className="space-y-2 ml-2">
             <li className="flex gap-3">
               <span className="text-neutral-400 select-none">→</span>
               <span>
@@ -70,7 +68,7 @@ export default function Home() {
                 </Link>
               </span>
             </li>
-            <li className="flex gap-3">
+            <li className="flex gap-4">
               <span className="text-neutral-400 select-none">→</span>
               <span>
                 built stuff to make it easier to{" "}
@@ -81,7 +79,6 @@ export default function Home() {
                 <Link href="#" className="underline underline-offset-4 decoration-1">
                   deploy
                 </Link>
-                {" "}things
               </span>
             </li>
             <li className="flex gap-3">
@@ -102,7 +99,7 @@ export default function Home() {
         </article>
 
         {/* Technical Section */}
-        <section className="mt-20 mb-16">
+        <section className="mt-2 mb-16 text-sm">
           <h2 className="text-sm font-medium mb-6 uppercase tracking-wider text-neutral-600 dark:text-neutral-400">
             Projects
           </h2>
