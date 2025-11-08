@@ -14,12 +14,12 @@ export default function Home() {
               email
             </Link>
             <span className="text-neutral-300 dark:text-neutral-700">/</span>
-            <Link href="https://www.linkedin.com/in/michael-liang8/" target="_blank" rel="noopener noreferrer" className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100">
-              linkedin
-            </Link>
-            <span className="text-neutral-300 dark:text-neutral-700">/</span>
             <Link href="https://github.com/mili118" target="_blank" rel="noopener noreferrer" className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100">
               github
+            </Link>
+            <span className="text-neutral-300 dark:text-neutral-700">/</span>
+            <Link href="https://www.linkedin.com/in/michael-liang8/" target="_blank" rel="noopener noreferrer" className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100">
+              linkedin
             </Link>
           </div>
         </header>
@@ -27,7 +27,7 @@ export default function Home() {
         {/* Main Content */}
         <article className="space-y-4 leading-relaxed mb-16 text-sm">
           <p>
-            Greetings! I&apos;m Michael and I study Computer Engineering at UC San Diego. I'm interested in building smarter decentralized systems.
+            Greetings! I&apos;m Michael and I study Computer Engineering at UC San Diego. I'm interested in building on decentralized systems.
           </p>
 
           <p>
@@ -37,7 +37,7 @@ export default function Home() {
             </Link>
             . I also do some research regarding{" "}
             <Link href="#" className="underline underline-offset-4 decoration-1">
-              DEX privacy protocols
+              privacy protocols in DEXes
             </Link>
             {" "}and{" "}
             <Link href="#" className="underline underline-offset-4 decoration-1">
@@ -50,9 +50,18 @@ export default function Home() {
             .
           </p>
 
-          <p> </p>
+          <p> In my free time, I enjoy{" "}
 
-          <p className="pt-2 font-medium">Recent work:</p>
+          <Link href="#" className="underline underline-offset-4 decoration-1">
+            writing blogs
+          </Link>
+            {" "} about the things I read and learn about. I also like hitting a little white 
+            ball around a field sometimes. ⛳️
+
+          
+          </p>
+
+          {/* <p className="pt-2 font-medium">Recent work:</p>
 
           <ul className="space-y-2 ml-2">
             <li className="flex gap-3">
@@ -95,7 +104,7 @@ export default function Home() {
                 , a [description]
               </span>
             </li>
-          </ul>
+          </ul> */}
         </article>
 
         {/* Technical Section */}
