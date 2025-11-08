@@ -27,7 +27,7 @@ export default function Home() {
         {/* Main Content */}
         <article className="space-y-4 leading-relaxed mb-16 text-sm">
           <p>
-            Greetings! I&apos;m Michael and I study Computer Engineering at UC San Diego. I'm interested in building on decentralized systems.
+            Greetings! I&apos;m Michael and I study Computer Engineering at UC San Diego. I enjoy building applications on decentralized systems.
           </p>
 
           <p>
