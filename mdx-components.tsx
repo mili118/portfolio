@@ -15,7 +15,6 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     h3: ({ children }) => (
       <h3 className="text-xl font-semibold mt-6 mb-3">{children}</h3>
     ),
-    p: ({ children }) => <p className="mb-4 leading-relaxed">{children}</p>,
     a: ({ href, children }) => (
       <a
         href={href}

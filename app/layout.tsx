@@ -5,8 +5,8 @@ import { Suspense } from "react"
 import "./globals.css"
 
 export const metadata: Metadata = {
-  title: "Your Name - Portfolio",
-  description: "Personal website and writing",
+  title: "Michael Liang",
+  description: "Greetings! I'm Michael and I study Computer Engineering at UC San Diego. I enjoy building applications on decentralized systems.",
 }
 
 export default function RootLayout({
