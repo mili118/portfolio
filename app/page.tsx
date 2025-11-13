@@ -2,7 +2,7 @@ import Link from "next/link"
 
 export default function Home() {
   return (
-    <div className="min-h-screen bg-white dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100 flex items-center justify-center">
+    <div className="min-h-screen bg-neutral-0 dark:bg-neutral-950 text-neutral-900 dark:text-neutral-100 flex items-center justify-center">
       <div className="max-w-2xl w-full px-8 py-16 flex flex-col">
         {/* Header */}
         <header className="mb-10">
@@ -27,7 +27,7 @@ export default function Home() {
         {/* Main Content */}
         <article className="space-y-6 leading-loose text-sm">
           <p>
-            Greetings! I&apos;m Michael and I study Computer Engineering at UC San Diego. I enjoy building applications on decentralized systems.
+            Greetings! I&apos;m Michael and I study Computer Engineering at UC San Diego. I enjoy working with data on decentralized systems.
           </p>
 
           {/* <p>
@@ -57,7 +57,7 @@ export default function Home() {
               <span className="text-neutral-400 select-none">→</span>
               <span>
                  {" "}building{" "}
-                <Link href="#" className="underline underline-offset-4 decoration-1">
+                <Link href="/content/plutofi" className="underline underline-offset-4 decoration-1">
                   PlutoFi
                 </Link>
                 , a liquidity pool aggregation protocol on Solana
@@ -68,11 +68,11 @@ export default function Home() {
               <span className="text-neutral-400 select-none">→</span>
               <span>
                 researching{" "}
-                <Link href="#" className="underline underline-offset-4 decoration-1">
+                <Link href="/content/privacy-protocols" className="underline underline-offset-4 decoration-1">
                   privacy protocols on DEXes
                 </Link>
                 {" "}and{" "}
-                <Link href="#" className="underline underline-offset-4 decoration-1">
+                <Link href="/content/semantic-data" className="underline underline-offset-4 decoration-1">
                   semantic data engineering
                 </Link>
               </span>
@@ -80,8 +80,8 @@ export default function Home() {
             <li className="flex gap-3">
               <span className="text-neutral-400 select-none">→</span>
               <span>
-               helping lead engineering at{" "}
-            <Link href="#" className="underline underline-offset-4 decoration-1">
+              engineering at{" "}
+            <Link href="/content/basd" className="underline underline-offset-4 decoration-1">
               BaSD
             </Link>
               </span>
@@ -90,7 +90,7 @@ export default function Home() {
 
           <p className="pt-2"> In my free time, I enjoy{" "}
 
-          <Link href="#" className="underline underline-offset-4 decoration-1">
+          <Link href="/content/writing-blogs" className="underline underline-offset-4 decoration-1">
             writing blogs
           </Link>
             {" "} about the things I read and learn about. I also enjoy hitting a little white 
@@ -107,8 +107,8 @@ export default function Home() {
             Projects
           </h2>
           <div className="space-y-6">
-            <Link href="/projects/placeholder-project-1" className="block group">
-              
+            <Link href="/projects/raft-server" className="block group">
+
               {/* project 1 */}
               <div className="border-l-2 border-neutral-200 dark:border-neutral-800 pl-4 py-2 group-hover:border-neutral-400 dark:group-hover:border-neutral-600 transition-colors">
                 <div className="flex justify-between items-baseline mb-1">
@@ -122,7 +122,7 @@ export default function Home() {
             </Link>
 
             {/* project 2 */}
-            <Link href="/projects/placeholder-project-2" className="block group">
+            <Link href="/projects/flight-agent" className="block group">
               <div className="border-l-2 border-neutral-200 dark:border-neutral-800 pl-4 py-2 group-hover:border-neutral-400 dark:group-hover:border-neutral-600 transition-colors">
                 <div className="flex justify-between items-baseline mb-1">
                   <h3 className="font-medium">Flight Agent</h3>
@@ -135,20 +135,7 @@ export default function Home() {
             </Link>
 
             {/* project 3 */}
-            <Link href="/projects/placeholder-project-2" className="block group">
-              <div className="border-l-2 border-neutral-200 dark:border-neutral-800 pl-4 py-2 group-hover:border-neutral-400 dark:group-hover:border-neutral-600 transition-colors">
-                <div className="flex justify-between items-baseline mb-1">
-                  <h3 className="font-medium">Bonk.Capital</h3>
-                  <span className="text-xs text-neutral-500 dark:text-neutral-600">Aug 2025</span>
-                </div>
-                <p className="text-neutral-600 dark:text-neutral-400 text-sm">
-                  stablecoin lending protocol on Solana
-                </p>
-              </div>
-            </Link>
-
-            {/* project 4 */}
-            <Link href="/projects/placeholder-project-2" className="block group">
+            <Link href="/projects/loki" className="block group">
               <div className="border-l-2 border-neutral-200 dark:border-neutral-800 pl-4 py-2 group-hover:border-neutral-400 dark:group-hover:border-neutral-600 transition-colors">
                 <div className="flex justify-between items-baseline mb-1">
                   <h3 className="font-medium">Loki</h3>
@@ -160,8 +147,8 @@ export default function Home() {
               </div>
             </Link>
 
-            {/* project 5 */}
-            <Link href="/projects/placeholder-project-2" className="block group">
+            {/* project 4 */}
+            <Link href="/projects/emg-prosthetic-hand" className="block group">
               <div className="border-l-2 border-neutral-200 dark:border-neutral-800 pl-4 py-2 group-hover:border-neutral-400 dark:group-hover:border-neutral-600 transition-colors">
                 <div className="flex justify-between items-baseline mb-1">
                   <h3 className="font-medium">EMG Prosthetic Hand</h3>
