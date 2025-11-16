@@ -10,9 +10,9 @@ export default function Home() {
             Michael Liang
           </h1>
           <div className="flex gap-3 text-sm">
-            <Link href="mailto:michaelliang875@gmail.com" className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100">
+            <a href="https://mail.google.com/mail/?view=cm&fs=1&to=michaelliang875@gmail.com" target="_blank" rel="noopener noreferrer" className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100">
               email
-            </Link>
+            </a>
             <span className="text-neutral-300 dark:text-neutral-700">/</span>
             <Link href="https://github.com/mili118" target="_blank" rel="noopener noreferrer" className="text-neutral-600 dark:text-neutral-400 hover:text-neutral-900 dark:hover:text-neutral-100">
               github
@@ -25,7 +25,7 @@ export default function Home() {
         </header>
 
         {/* Main Content */}
-        <article className="space-y-6 leading-loose text-sm">
+        <article className="space-y-6 leading-loose text-base">
           <p>
             Greetings! I&apos;m Michael and I study Computer Engineering at UC San Diego. I enjoy working with data on decentralized systems.
           </p>
@@ -102,7 +102,7 @@ export default function Home() {
         </article>
 
         {/* Technical Section */}
-        <section className="mt-10 text-sm">
+        <section className="mt-10 text-base">
           <h2 className="text-sm font-medium mb-6 uppercase tracking-wider text-neutral-600 dark:text-neutral-400">
             Projects
           </h2>
