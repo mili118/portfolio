@@ -1,7 +1,7 @@
 import Link from 'next/link'
 
 export const metadata = {
-  title: 'Privacy Protocols on DEXes',
+  title: 'Breaking the Veil: Analyzing Privacy Protocols in Decentralized Finance',
   description: 'Research on privacy protocols in decentralized exchanges',
 }
 
@@ -11,17 +11,321 @@ export const metadata = {
       ← back
     </Link>
 
-    <article className="space-y-8 leading-loose">
+    <article className="space-y-6 leading-loose text-base">
       <header className="mb-10">
-        <h1 className="text-3xl font-normal mb-3 tracking-tight">Privacy Protocols on DEXes</h1>
+        <h1 className="text-3xl font-normal mb-3 tracking-tight">Breaking the Veil: Analyzing Privacy Protocols in Decentralized Finance</h1>
         <p className="text-neutral-500 dark:text-neutral-600">Research on privacy protocols in decentralized exchanges</p>
       </header>
 
-      <h2 className="text-xl font-medium mt-10 mb-4">overview</h2>
+      <h3 className="text-xl font-medium mt-8 mb-4">Background</h3>
 
       <p>
-        Details about the research.
+        Privacy has become one of the most contentious topics in decentralized finance. While blockchain technology offers unprecedented transparency and trustlessness, this same transparency creates significant privacy concerns for users and institutions alike. Every transaction, every wallet balance, and every DeFi interaction is permanently recorded on-chain for anyone to analyze.
       </p>
+
+      <p>
+        This transparency has created a substantial market opportunity. Privacy-focused DEX protocols have emerged promising to shield users from surveillance while maintaining the core benefits of decentralization. These protocols claim to make fund tracing nearly impossible through sophisticated cryptographic techniques and multi-layer obfuscation systems.
+      </p>
+
+      <p>
+        But how private are they really? Our research examines three prominent privacy protocols – Houdini Swap, Railgun, and Secret Swap – to understand their mechanisms and, more importantly, to explore whether sophisticated analysis can break through their privacy guarantees.
+      </p>
+
+      <h3 className="text-xl font-medium mt-8 mb-4">Overview</h3>
+
+      <p>
+        This research project explores the fundamental question: <strong>Can we reverse-engineer and trace transactions through anonymous DEX protocols?</strong>
+      </p>
+
+      <p>
+        We&apos;ve analyzed three distinct privacy approaches in DeFi, each representing different architectural philosophies for achieving transaction privacy. From dual-exchange systems to zero-knowledge proofs to trusted execution environments, these protocols employ cutting-edge cryptographic techniques to obscure the flow of funds.
+      </p>
+
+      <p>
+        However, our research reveals that privacy in DeFi is not absolute. Through a combination of on-chain analysis, timing correlation, volume tracking, and behavioral pattern recognition, we&apos;ve developed heuristics that can potentially compromise the privacy guarantees of these systems under certain conditions.
+      </p>
+
+      <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
+
+      <h2 className="text-2xl font-semibold mt-10 mb-4">Houdini Swap: The Dual Exchange Approach</h2>
+
+      <h3 className="text-xl font-medium mt-8 mb-4">How It Works</h3>
+
+      <p>
+        Houdini Swap is a non-custodial DEX that enables token exchanges both within the same blockchain and across different chains. Its primary privacy mechanism relies on what they call the &quot;dual exchange system&quot; – an architecture designed to break the direct link between sender and recipient.
+      </p>
+
+      <div><strong>The Dual Exchange Process:</strong></div>
+
+      <ol className="list-decimal ml-6 space-y-2 mt-2">
+        <li><strong>Initial Deposit</strong>: User sends funds to Exchange 1&apos;s deposit address</li>
+        <li><strong>Internal Pool Mixing</strong>: Exchange 1 pools the received funds with other users&apos; deposits</li>
+        <li><strong>Cross-Chain Hop</strong>: Exchange 1&apos;s hot wallet sends funds to a single-use address on a random Layer 1</li>
+        <li><strong>Second Exchange</strong>: The single-use address forwards funds to Exchange 2&apos;s deposit address</li>
+        <li><strong>Second Pool Mixing</strong>: Exchange 2 pools these funds again</li>
+        <li><strong>Final Delivery</strong>: Exchange 2&apos;s hot wallet sends funds to the destination address</li>
+      </ol>
+
+      <p>
+        <strong>Legacy Mode</strong> takes this further by converting funds to Monero during the intermediate hop, adding an additional privacy layer through Monero&apos;s native obfuscation.
+      </p>
+
+      <h3 className="text-xl font-medium mt-8 mb-4">The Vulnerability Hypothesis</h3>
+
+      <div>
+        <strong>Volume-Based Tracing</strong>: Since you can observe the initial transaction to Exchange 1&apos;s deposit address, you can:
+      </div>
+
+      <ol className="list-decimal ml-6 space-y-2 mt-2">
+        <li>Record the exact amount sent</li>
+        <li>Query Houdini Swap to get the quoted receive amount (accounting for fees and slippage)</li>
+        <li>Scan target blockchain explorers during a time window for transactions matching that exact amount</li>
+        <li>Filter results based on timing patterns (typical processing time for Houdini Swap transactions)</li>
+      </ol>
+
+      <p>
+        The key weakness is that while the path is obfuscated, the amounts remain relatively predictable. Slippage and network fees introduce some variance, but not enough to provide strong privacy guarantees when combined with timing analysis.
+      </p>
+
+      <p>
+        <strong>Critical Question</strong>: Given that Houdini Swap pools resemble Tornado Cash&apos;s mixing architecture, shouldn&apos;t interacting wallets face similar regulatory concerns?...
+      </p>
+
+      <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
+
+      <h2 className="text-2xl font-semibold mt-10 mb-4">Railgun: Zero-Knowledge Privacy Layer</h2>
+
+      <h3 className="text-xl font-medium mt-8 mb-4">How It Works</h3>
+
+      <p>
+        Railgun represents a more sophisticated approach – a smart contract protocol built on Ethereum, BSC, Polygon, and Arbitrum that uses zk-SNARKs (Zero-Knowledge Succinct Non-Interactive Arguments of Knowledge) to enable private DeFi interactions.
+      </p>
+
+      <div><strong>The Three-Phase System:</strong></div>
+
+      <div><strong>Phase 1 - Shielding</strong>:</div>
+
+      <ul className="list-disc ml-6 space-y-2 mt-2">
+        <li>User sends funds from their public wallet to Railgun&apos;s smart contract</li>
+        <li>The contract creates a &quot;0zk&quot; shielded wallet and credits it with the deposited amount</li>
+        <li>The user gains exclusive control over this 0zk wallet through cryptographic proofs</li>
+      </ul>
+
+      <div><strong>Phase 2 - Private Actions</strong>:</div>
+
+      <ul className="list-disc ml-6 space-y-2 mt-2">
+        <li>When interacting with DeFi protocols, the 0zk wallet provides a zero-knowledge proof of fund ownership</li>
+        <li>Railgun&apos;s smart contract calls the target DeFi protocol on behalf of the user</li>
+        <li>After the interaction completes, funds are returned to the 0zk wallet privately</li>
+        <li>All transaction logic remains hidden from public view</li>
+      </ul>
+
+      <div><strong>Phase 3 - Unshielding</strong>:</div>
+
+      <ul className="list-disc ml-6 space-y-2 mt-2">
+        <li>The 0zk wallet provides proof of fund ownership</li>
+        <li>Funds are withdrawn from the 0zk wallet</li>
+        <li>Railgun&apos;s smart contract sends funds to the designated public (0x) wallet address</li>
+      </ul>
+
+      <h3 className="text-xl font-medium mt-8 mb-4">The Privacy Analysis</h3>
+
+      <p>
+        Railgun&apos;s zero-knowledge approach is significantly more robust than Houdini Swap&apos;s, but we still came up with conditions where privacy can degrade:
+      </p>
+
+      <div><strong>Low Activity Vulnerability</strong>:</div>
+
+      <p>
+        If Railgun&apos;s activity volume is low, privacy guarantees weaken substantially. Consider this scenario:
+      </p>
+
+      <p>
+        <em>Imagine only 10 deposits exist in the Railgun pool. Bob deposits 1 ETH. A few days later, 500 ARB is withdrawn. We know Bob&apos;s withdrawal must have originated from one of the 10 deposits.</em>
+      </p>
+
+      <div>From this starting point, we can narrow down the source:</div>
+
+      <ol className="list-decimal ml-6 space-y-2">
+        <li><strong>Transaction Pattern Analysis</strong>: Examine all on-chain DeFi interactions between deposit and withdrawal timestamps</li>
+        <li><strong>Token Exchange Filtering</strong>: Look for smart contract calls involving ETH outflows ≤ 1 ETH paired with ARB inflows</li>
+        <li><strong>Amount Correlation</strong>: If a transaction swapped 1 ETH for 500 ARB, and 500 ARB was subsequently withdrawn, we can establish high-confidence attribution</li>
+      </ol>
+
+      <p>
+        This heuristic only works effectively in low-volume environments. With hundreds of thousands of daily interactions, the combinatorial explosion makes such analysis computationally intractable.
+      </p>
+
+      <div><strong>Additional Privacy Measures</strong>:</div>
+
+      <div>Railgun (via the Railway app) implements several defensive mechanisms:</div>
+
+      <ul className="list-disc ml-6 space-y-2 mt-2">
+        <li>1-hour mandatory delay after shielding before funds can be used (likely for OFAC compliance checks)</li>
+        <li>Yield farming incentives (9.54% APY on USDC) to encourage users to keep funds shielded longer, increasing the anonymity set</li>
+        <li>However, shielding costs are significant: approximately $6 in gas fees to shield $50 worth of USDC when I tried in August 2025.</li>
+      </ul>
+
+      <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
+
+      <h2 className="text-2xl font-semibold mt-10 mb-4">Secret Swap: Trusted Execution Environment Approach</h2>
+
+      <h3 className="text-xl font-medium mt-8 mb-4">How It Works</h3>
+
+      <p>
+        Secret Swap takes a fundamentally different architectural approach, operating on the Secret Network – a blockchain inherently designed for privacy where transactions are encrypted by default.
+      </p>
+
+      <div><strong>The Secret Network Foundation:</strong></div>
+
+      <ul className="list-disc ml-6 space-y-2">
+        <li>All transaction details are encrypted before reaching the blockchain</li>
+        <li>Transaction logic executes within Trusted Execution Environments (TEEs)</li>
+        <li>Only encrypted state updates are written to the blockchain</li>
+        <li>Users maintain viewing keys to decrypt their own transaction history</li>
+      </ul>
+
+      <div><strong>The Swap Process:</strong></div>
+
+      <ol className="list-decimal ml-6 space-y-2">
+        <li><strong>Initiation</strong>: User initiates a swap between two Secret Network tokens</li>
+        <li><strong>Client-Side Encryption</strong>: The user&apos;s wallet encrypts the transaction before transmission</li>
+        <li><strong>Secret Contract Processing</strong>: The encrypted transaction is sent to Secret Swap&apos;s smart contract</li>
+        <li><strong>TEE Execution</strong>: The encrypted transaction enters a TEE (Trusted Execution Environment) where it&apos;s decrypted, processed, and the swap is executed (AMM calculations, price discovery, trade execution)</li>
+        <li><strong>Encrypted State Update</strong>: The enclave outputs an encrypted state update, which a validator posts to the Secret Network blockchain</li>
+        <li><strong>Private Balance Update</strong>: The user&apos;s wallet uses a viewing key to decrypt the updated state and display the new balance</li>
+      </ol>
+
+      <p>
+        <strong>MEV Protection</strong>: Because all transaction logic occurs within encrypted enclaves, MEV bots cannot see transaction details before execution, effectively eliminating frontrunning.
+      </p>
+
+      <h3 className="text-xl font-medium mt-8 mb-4">The Analysis Challenge</h3>
+
+      <p>
+        Secret Swap presents the most difficult analysis challenge of the three protocols we examined. The fundamental difference is that no transaction details are ever exposed on-chain – not amounts, not token types, not even wallet addresses in a traditional sense.
+      </p>
+
+      <p>
+        <strong>Our Initial Hypothesis</strong>: We considered applying Railgun-style heuristics – tracking deposit amounts and timing patterns to correlate with withdrawal patterns. However, this approach fails for Secret Swap because:
+      </p>
+
+      <ol className="list-decimal ml-6 space-y-2">
+        <li><strong>Liquidity is siloed</strong> within the Secret Network ecosystem</li>
+        <li><strong>All values are encrypted</strong> throughout the entire transaction lifecycle</li>
+        <li><strong>Cross-chain analysis is impossible</strong> without off-chain oracle data</li>
+        <li><strong>Timing attacks are ineffective</strong> when you can&apos;t see transaction amounts or participants</li>
+      </ol>
+
+      <p>
+        <strong>The Reality</strong>: After extensive analysis, we determined that Secret Swap is genuinely resistant to the on-chain forensic techniques that can compromise Houdini Swap and low-volume Railgun instances.
+      </p>
+
+      <div><strong>The Trade-off</strong>: This strong privacy comes at a cost:</div>
+
+      <ul className="list-disc ml-6 space-y-2">
+        <li><strong>Extremely low liquidity</strong> in Secret Swap pools results in high slippage</li>
+        <li><strong>Small user base</strong> limits the practical utility of the protocol</li>
+        <li><strong>Requires Secret Network native tokens</strong>, creating friction for users from other ecosystems</li>
+      </ul>
+
+      <p>
+        While theoretically more private, Secret Swap&apos;s lack of adoption means it may not be a practical privacy solution for most users.
+      </p>
+
+      <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
+
+      <h2 className="text-2xl font-semibold mt-10 mb-4">Research Implications and Open Questions</h2>
+
+      <h3 className="text-xl font-medium mt-8 mb-4">Key Findings</h3>
+
+      <div>Our research demonstrates that privacy in DeFi exists on a spectrum rather than as an absolute:</div>
+
+      <ol className="list-decimal ml-6 space-y-2">
+        <li><strong>Houdini Swap</strong>: Vulnerable to volume-timing correlation attacks when transaction amounts are known</li>
+        <li><strong>Railgun</strong>: Provides strong privacy at scale but degrades significantly in low-activity environments</li>
+        <li><strong>Secret Swap</strong>: Offers the strongest theoretical privacy but suffers from impractical liquidity constraints</li>
+      </ol>
+
+      <h3 className="text-xl font-medium mt-8 mb-4">The Broader Context</h3>
+
+      <div>This research focuses specifically on DEX privacy protocols, but the landscape is much broader:</div>
+
+      <ul className="list-disc ml-6 space-y-2">
+        <li><strong>Privacy-focused L1s</strong>: Blockchains like Monero offer network-level privacy rather than application-level privacy</li>
+        <li><strong>Emerging technologies</strong>: Solana&apos;s confidential balance transfers and other chain-native privacy features</li>
+        <li><strong>Regulatory evolution</strong>: How will frameworks like the Travel Rule and OFAC sanctions affect privacy protocol adoption?</li>
+      </ul>
+
+      <h3 className="text-xl font-medium mt-8 mb-4">The Fundamental Tension</h3>
+
+      <div>There exists an irreconcilable tension in DeFi privacy:</div>
+
+      <p>
+        <strong>Strong privacy protocols are often the most vulnerable</strong> – not to cryptographic attacks, but to practical deanonymization through behavioral analysis, timing correlation, and social engineering. The very techniques that provide privacy (mixing, shielding, encryption) also tend to concentrate liquidity, reduce adoption, and create analyzable patterns.
+      </p>
+
+      <p>
+        <strong>Weaker privacy protocols can be more effective in practice</strong> – protocols with larger user bases and higher volume naturally provide better anonymity sets, even if their cryptographic guarantees are weaker.
+      </p>
+
+      <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
+
+      <h2 className="text-2xl font-semibold mt-10 mb-4">Future Research Directions</h2>
+
+      <div>This research opens several promising avenues for further investigation:</div>
+
+      <ol className="list-decimal ml-6 space-y-2">
+        <li><strong>Quantifying privacy degradation</strong> as a function of protocol activity levels</li>
+        <li><strong>Machine learning approaches</strong> to transaction pattern recognition and clustering</li>
+        <li><strong>Cross-chain flow analysis</strong> when funds move between privacy protocols</li>
+        <li><strong>Regulatory compliance mechanisms</strong> that preserve privacy while meeting legal requirements</li>
+        <li><strong>Economic incentives</strong> for maintaining large anonymity sets</li>
+      </ol>
+
+      <p>
+        The goal is not to break privacy for malicious purposes, but to understand the true security guarantees these protocols provide so users can make informed decisions about their financial privacy.
+      </p>
+
+      <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
+
+      <h2 className="text-2xl font-semibold mt-10 mb-4">Conclusion</h2>
+
+      <p>
+        Privacy in decentralized finance remains an unsolved challenge. While sophisticated cryptographic techniques like zero-knowledge proofs and trusted execution environments offer strong theoretical guarantees, practical privacy depends heavily on adoption, liquidity, and behavioral security.
+      </p>
+
+      <p>
+        Our analysis of Houdini Swap, Railgun, and Secret Swap reveals that no current privacy protocol is perfect. Each makes different trade-offs between privacy, usability, and regulatory compliance.
+      </p>
+
+      <div>As the DeFi ecosystem continues to mature, we expect to see:</div>
+
+      <ul className="list-disc ml-6 space-y-2">
+        <li>Improved privacy-preserving technologies with better practical security</li>
+        <li>Greater regulatory clarity around privacy protocols</li>
+        <li>More sophisticated analysis techniques from both researchers and adversaries</li>
+        <li>Protocol designs that better balance privacy, compliance, and usability</li>
+      </ul>
+
+      <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
+
+      <p className="italic">
+        This research was conducted as part of an independent study on DeFi privacy protocols under the supervision of Prof. Deian Stefan at UC San Diego, focusing on developing heuristics for fund tracing and verification across anonymous DEX systems.
+      </p>
+
+      <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
+
+      <h3 className="text-xl font-medium mt-8 mb-4">References</h3>
+
+      <ul className="list-none space-y-2">
+        <li><a href="https://cseweb.ucsd.edu/~smeiklejohn/files/imc13.pdf" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 decoration-1">https://cseweb.ucsd.edu/~smeiklejohn/files/imc13.pdf</a></li>
+        <li><a href="https://smeiklej.com/files/usenix22.pdf" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 decoration-1">https://smeiklej.com/files/usenix22.pdf</a></li>
+        <li><a href="https://rareskills.io/post/how-does-tornado-cash-work" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 decoration-1">https://rareskills.io/post/how-does-tornado-cash-work</a></li>
+        <li><a href="https://docs.houdiniswap.com/houdini-swap/whitepaper" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 decoration-1">https://docs.houdiniswap.com/houdini-swap/whitepaper</a></li>
+        <li><a href="https://docs.railgun.org/wiki" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 decoration-1">https://docs.railgun.org/wiki</a></li>
+        <li><a href="https://docs.secretswap.net/" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 decoration-1">https://docs.secretswap.net/</a></li>
+      </ul>
     </article>
   </div>
 </div>
