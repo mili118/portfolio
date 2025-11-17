@@ -11,17 +11,55 @@ export const metadata = {
       ← back
     </Link>
 
-    <article className="space-y-8 leading-loose">
+    <article className="space-y-6 leading-loose text-base">
       <header className="mb-10">
         <h1 className="text-3xl font-normal mb-3 tracking-tight">PlutoFi</h1>
         <p className="text-neutral-500 dark:text-neutral-600">A liquidity pool aggregation protocol on Solana</p>
       </header>
 
-      <h2 className="text-xl font-medium mt-10 mb-4">overview</h2>
+      <h3 className="text-xl font-medium mt-8 mb-4">Background</h3>
 
       <p>
-        Details about PlutoFi and what it does.
+        Liquidity Pools are the underlying mechanisms that power all the trading activity on decentralized exchanges across all blockchains. It is the single determinant of an asset&apos;s value, and it is what enables users to trade an asset.
       </p>
+
+      <p>
+        In addition to the powerful mechanisms that Liquidity Pools provide, it also presents an opportunity for users to earn money through <em>liquidity provision</em>. For every transaction interacting with a Liquidity Pool, a small fee is accrued by the pool, which is then distributed to its Liquidity Providers (LPs) – people who put their assets into these pools. Furthermore, Different pools generate different yield % due to differences in transactional volume across different token pairs (more volume = more fees = more earned by LPs).
+      </p>
+
+      <p>
+        The monthly average shows that the liquidity provision sector generates ~1B USD, but only 0.03% of wallets on Solana capitalize on these funds (an average of 7.7K USD profit generated per LP wallet / month). You might be wondering – why aren&apos;t more people taking advantage of this opportunity?
+      </p>
+
+      <p>
+        We deduced that the underlying reason for the lack of adoption in this sector was due to the learning curve associated with creating and managing LP positions. Users must face the challenges of understanding the mathematical theorems associated with these pools (AMMs, CPAMM, CLMM, etc), conduct extensive market research to find the most profitable and safest pools to create positions in, and navigate through a complex UI just to create or manage a position.
+      </p>
+
+      <h3 className="text-xl font-medium mt-8 mb-4">Overview</h3>
+
+      <p>
+        PlutoFi closes this discrepancy with a data driven solution. The platform aggregates the the best performing and most reliable pools across all major DEXes to eliminate the need for extensive market research. This is combined with custom analytics and insights about the pool that empower users to make informed decisions about their positions, all unified in a never seen before, intuitive UI.
+      </p>
+
+      <p>
+        We&apos;ve vertically integrated the entire process from bottom to top; from streaming and parsing raw transaction data directly from the validators to converting this data into useful and actionable analytics to running algorithms for searching and compiling the top performing pools across different DEXes. We do not use any APIs from other platforms, as we&apos;ve built proprietary data pipelines powered by Rust engines to deliver these results with sub millisecond latency and data completeness.
+      </p>
+
+      <p>
+        The project is currently in late stage development and is expected to launch in beta this coming month. We are proud to be supported by <a href="https://superteam.ca/" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 decoration-1">Superteam Canada</a> and <a href="https://spark.fi/" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 decoration-1">Spark</a>.
+      </p>
+
+      <div className="mt-6 space-y-2">
+        <p>
+          <strong>Waitlist:</strong> <a href="https://www.plutofi.xyz/" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 decoration-1">https://www.plutofi.xyz/</a>
+        </p>
+        <p>
+          <strong>Discord:</strong> <a href="https://discord.gg/N3eHcu85mJ" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 decoration-1">discord.gg/N3eHcu85mJ</a>
+        </p>
+        <p>
+          <strong>X:</strong> <a href="https://x.com/plutofi_xyz" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 decoration-1">https://x.com/plutofi_xyz</a>
+        </p>
+      </div>
     </article>
   </div>
 </div>
