@@ -81,9 +81,9 @@ export default function Home() {
               <span className="text-neutral-400 select-none">→</span>
               <span>
               engineering at{" "}
-            <Link href="/content/basd" className="underline underline-offset-4 decoration-1">
+            <a href="https://www.alchemy.com/dapps/blockchain-at-ucsd" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 decoration-1">
               BaSD
-            </Link>
+            </a>
               </span>
             </li>
           </ul>
