@@ -17,16 +17,74 @@ export const metadata = {
         <p className="text-neutral-500 dark:text-neutral-600">A fault-tolerant key-value storage server built on a distributed network using the Raft consensus algorithm</p>
       </header>
 
-      <h3 className="text-xl font-medium mt-8 mb-4">Overview</h3>
+      <div className="border border-neutral-200 dark:border-neutral-800 rounded-lg p-6 mb-6 hover:border-neutral-400 dark:hover:border-neutral-600 transition-colors">
+        <a href="/projects/raft-server/Raft_Report.pdf" target="_blank" rel="noopener noreferrer" className="block">
+          <div className="flex items-center justify-between">
+            <div>
+              <h3 className="text-lg font-medium mb-1">Project Report</h3>
+              <p className="text-sm text-neutral-600 dark:text-neutral-400">View the full implementation report</p>
+            </div>
+            <span className="text-neutral-400 dark:text-neutral-600">→</span>
+          </div>
+        </a>
+      </div>
+
+      <h2 className="text-2xl font-normal mt-10 mb-4">What is Raft?</h2>
 
       <p>
-        Implementation details and challenges faced during development.
+        Raft is a consensus algorithm designed to be easily understandable while providing the same guarantees as Paxos. It allows a cluster of servers to agree on a shared state even in the presence of failures, ensuring that the system continues to operate correctly as long as a majority of servers remain functional.
       </p>
 
-      <h3 className="text-xl font-medium mt-8 mb-4">Technical Details</h3>
+      <p>
+        The algorithm solves the fundamental problem of distributed systems: how do you get multiple servers to agree on the same sequence of operations when any of them might crash, network messages might be lost or delayed, and clocks aren't synchronized?
+      </p>
+
+      <h2 className="text-2xl font-normal mt-10 mb-4">Key Features</h2>
 
       <p>
-        Technical implementation details to be added.
+        This implementation provides a fault-tolerant key-value storage system with the following capabilities:
+      </p>
+
+      <ul className="list-disc ml-6 space-y-2">
+        <li><strong>Leader Election</strong>: Automatically elects a leader to coordinate operations across the cluster</li>
+        <li><strong>Log Replication</strong>: Ensures all servers maintain identical replicated logs of client operations</li>
+        <li><strong>Fault Tolerance</strong>: Continues operating correctly even when minority of servers fail</li>
+        <li><strong>Consistency Guarantees</strong>: Provides linearizable semantics for all read and write operations</li>
+        <li><strong>Automatic Recovery</strong>: Failed servers can rejoin the cluster and catch up on missed operations</li>
+      </ul>
+
+      <h2 className="text-2xl font-normal mt-10 mb-4">How It Works</h2>
+
+      <p>
+        The Raft algorithm divides the consensus problem into three relatively independent subproblems:
+      </p>
+
+      <p><strong>Leader Election</strong></p>
+
+      <p>
+        A new leader must be chosen when an existing leader fails. Servers start as followers and transition to candidates when they don't hear from a leader. Candidates request votes from other servers, and a server becomes leader when it receives votes from a majority of the cluster.
+      </p>
+
+      <p><strong>Log Replication</strong></p>
+
+      <p>
+        The leader accepts client requests, appends them to its log, and replicates the log entries to follower servers. Once an entry is replicated on a majority of servers, it's considered committed and can be applied to the state machine.
+      </p>
+
+      <p><strong>Safety</strong></p>
+
+      <p>
+        Raft ensures that if any server has applied a particular log entry to its state machine, no other server can apply a different command for the same log index. This is achieved through election restrictions and commitment rules.
+      </p>
+
+      <hr className="my-8 border-neutral-200 dark:border-neutral-800" />
+
+      <h3 className="text-xl font-medium mt-8 mb-4">Source Code</h3>
+
+      <p>
+        <a href="https://github.com/mili118/raft" target="_blank" rel="noopener noreferrer" className="underline underline-offset-4 decoration-1">
+          View the implementation on GitHub
+        </a>
       </p>
     </article>
   </div>
